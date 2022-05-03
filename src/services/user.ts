@@ -20,7 +20,7 @@ export class UserService {
         const repository = new UserRepository();
         
         if (userDTO.name.length >= 3 && userDTO.password.length >= 4) {
-            return  await repository.create(userDTO)
+            return  await repository.create(userDTO);
         }     
     }
 
@@ -28,13 +28,13 @@ export class UserService {
         const repository = new UserRepository();
         
         if (userDTO.name.length >= 3 && userDTO.password.length >= 4) {
-            return  await repository.update(userDTO)
+            return  await repository.update(userDTO);
         }  
     }
 
     async delete(userID: number) {
         const repository = new UserRepository();
-        await repository.delete(userID)
+        await repository.delete(userID);
     }
 
 }

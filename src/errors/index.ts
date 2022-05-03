@@ -1,1 +1,1 @@
-export * from './httpError'
+export * from './httpError';

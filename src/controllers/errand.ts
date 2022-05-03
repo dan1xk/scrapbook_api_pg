@@ -12,14 +12,14 @@ import {
 
 export default class ErrandController {
     async index(request: Request, response: Response) {
-       const { id } = request.params
-       const service = new ErrandService() 
+       const { id } = request.params;
+       const service = new ErrandService();
 
        try {
            const errands = (await service.find())
-                .filter(user => user.userId === parseInt(id))
+                .filter(user => user.userId === parseInt(id));
 
-            return response.status(200).json(errands)
+            return response.status(200).json(errands);
        } catch (error) {
            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);     
        }
@@ -35,16 +35,16 @@ export default class ErrandController {
                 userId
             });
 
-            return response.status(httpCreatedCode).json(createMessage('Criado'))
+            return response.status(httpCreatedCode).json(createMessage('Criado'));
         } catch (error) {
-            throw new HttpError(defaultErrorMessage,HttpInternalErrorCode)
+            throw new HttpError(defaultErrorMessage,HttpInternalErrorCode);
         }
     }
 
     async update(request: Request, response: Response) {
-        const { id } = request.params
+        const { id } = request.params;
         const { errands, userId } = request.body;
-        const service = new ErrandService()
+        const service = new ErrandService();
 
         try {
             await service.update({
@@ -53,15 +53,15 @@ export default class ErrandController {
                 userId
             });
 
-            return response.status(httpCreatedCode).json(createMessage('Editado'))
+            return response.status(httpCreatedCode).json(createMessage('Editado'));
         } catch (error) {
-            throw new HttpError(defaultErrorMessage,HttpInternalErrorCode)
+            throw new HttpError(defaultErrorMessage,HttpInternalErrorCode);
         }
     }
     
     async delete(request: Request, response: Response) {
         const { id } = request.params;
-        const service = new ErrandService()
+        const service = new ErrandService();
         try {
             await service.delete(parseInt(id));
 

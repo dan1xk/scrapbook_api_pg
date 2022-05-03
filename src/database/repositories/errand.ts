@@ -4,27 +4,27 @@ import { ErrandEntity } from "../entities/errand";
 export class ErrandRepository {
     async find() {
         const errands = await ErrandEntity.find();
-        return errands
+        return errands;
     }
 
     async create(errandDTO: ErrandDTO) {
         const errand = await new ErrandEntity(errandDTO.errands, errandDTO.userId);
-        errand.save()
-        return errand
+        errand.save();
+        return errand;
     }
 
     async update(errandDTO: ErrandDTO) {
-        const errand = await ErrandEntity.findOne(errandDTO.id)
+        const errand = await ErrandEntity.findOne(errandDTO.id);
 
         if (errand) {
-            errand.errands = errandDTO.errands
-            await errand.save()
+            errand.errands = errandDTO.errands;
+            await errand.save();
         }
 
         return errand;
     }
 
     async delete(errandID: number) {
-        await ErrandEntity.delete(errandID)
+        await ErrandEntity.delete(errandID);
     }
 }

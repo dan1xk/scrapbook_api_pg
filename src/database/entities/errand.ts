@@ -16,9 +16,9 @@ export class ErrandEntity extends BaseEntity {
     @JoinColumn({name: 'user_id', referencedColumnName: 'id'})
     user?: UserEntity;
 
-    constructor(errands: string, userID: number){
-        super()
-        this.errands = errands
-        this.userId = userID
+    constructor(errands: string, userID: number) {
+        super();
+        this.errands = errands;
+        this.userId = userID;
     }
 }

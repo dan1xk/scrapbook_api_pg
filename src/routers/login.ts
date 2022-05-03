@@ -6,8 +6,8 @@ export default class LoginRoutes {
         const routes = Router();
         const controller = new LoginController();
 
-        routes.post('/login', controller.login)
-        routes.post('/loginAuth', controller.authLogin)
+        routes.post('/login', controller.login);
+        routes.post('/loginAuth', controller.authLogin);
        
         return routes;
     }

@@ -6,10 +6,10 @@ export default class ErrandRoutes {
         const routes = Router();
         const controller = new ErrandController();
 
-        routes.get('/errand/:id', controller.index)
-        routes.post('/errand', controller.store)
-        routes.put('/errand/:id', controller.update)
-        routes.delete('/errand/:id', controller.delete)
+        routes.get('/errand/:id', controller.index);
+        routes.post('/errand', controller.store);
+        routes.put('/errand/:id', controller.update);
+        routes.delete('/errand/:id', controller.delete);
 
         return routes;
     }

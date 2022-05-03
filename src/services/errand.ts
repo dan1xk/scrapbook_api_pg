@@ -9,13 +9,6 @@ export class ErrandService {
         return errand;
     }
 
-    async findOne(id: number) {
-        const repository = new ErrandRepository();
-        const errand = await repository.findOne(id);
-
-        return errand;
-    }
-
     async create(errandDTO: ErrandDTO) {
         const repository = new ErrandRepository();
         const errand = await repository.create(errandDTO);
@@ -32,6 +25,6 @@ export class ErrandService {
 
     async delete(errandID: number) {
         const repository = new ErrandRepository();
-        await repository.delete(errandID)
+        await repository.delete(errandID);
     }
 }

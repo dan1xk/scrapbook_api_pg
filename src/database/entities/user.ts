@@ -13,11 +13,11 @@ export class UserEntity extends BaseEntity {
     password: String;
     
     @OneToMany(type => ErrandEntity, errands => errands.user)
-    errands?: ErrandEntity[]
+    errands?: ErrandEntity[];
 
-    constructor(name: String,  password: String){
-        super()
-        this.name = name
-        this.password = password
+    constructor(name: String,  password: String) {
+        super();
+        this.name = name;
+        this.password = password;
     }
 }

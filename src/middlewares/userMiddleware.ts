@@ -5,8 +5,8 @@ import { UserService } from '../services';
 export async function checkRegistration(request: Request, response: Response, next: NextFunction) {
     const { name, password } = request.body;
         const service = new UserService();
-        const users = await service.find()
-        const userName = users.find(user => user.name === name)
+        const users = await service.find();
+        const userName = users.find(user => user.name === name);
 
         if (userName) {
             return response.status(HttpBadRequestCode).json({
@@ -32,5 +32,5 @@ export async function checkRegistration(request: Request, response: Response, ne
             })
         }
 
-        next()
+        next();
 }

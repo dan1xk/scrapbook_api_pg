@@ -11,10 +11,10 @@ import { createMessage,
 export default class UserController {
 
     async index(request: Request, response: Response) {
-        const service = new UserService()
+        const service = new UserService();
         
         try {
-            return response.json(await service.find())  
+            return response.json(await service.find());
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);      
         }
@@ -31,7 +31,7 @@ export default class UserController {
                 password: password
             });
 
-            return response.status(httpCreatedCode).json(createMessage('Criado'))
+            return response.status(httpCreatedCode).json(createMessage('Criado'));
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
         }

@@ -1,4 +1,4 @@
-import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
 export class Errands1649819092902 implements MigrationInterface {
 
