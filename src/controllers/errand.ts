@@ -7,7 +7,8 @@ import {
     defaultErrorMessage,
     httpCreatedCode,
     HttpInternalErrorCode,
-    HttpNoContent
+    HttpNoContent,
+    httpSucessCode
 } from '../constants';
 
 export default class ErrandController {
@@ -19,7 +20,7 @@ export default class ErrandController {
            const errands = (await service.find())
                 .filter(user => user.userId === parseInt(id));
 
-            return response.status(200).json(errands);
+            return response.status(httpSucessCode).json(errands);
        } catch (error) {
            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);     
        }

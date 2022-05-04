@@ -14,12 +14,6 @@ export async function checkRegistration(request: Request, response: Response, ne
             })
         }
 
-        if (!name || !password) {
-            return response.status(HttpBadRequestCode).json({
-                message: 'Preencha todos os campos'
-            })
-        }
-
         if (password.length <= 3) {
             return response.status(HttpBadRequestCode).json({
                 message: fieldSize('Senha', 3)

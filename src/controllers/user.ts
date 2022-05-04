@@ -18,7 +18,6 @@ export default class UserController {
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);      
         }
-
     }
 
     async store(request: Request, response: Response) {
