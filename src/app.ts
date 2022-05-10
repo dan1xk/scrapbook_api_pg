@@ -1,10 +1,10 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-
 import Database from './database/connections/Database';
 import UserRoutes from './routers/user';
 import ErrandRoutes from './routers/errand';
 import LoginRoutes from './routers/login';
+import { HttpError } from './errors/httpError';
 
 export default class Application {
     readonly #express: express.Application;
@@ -15,8 +15,8 @@ export default class Application {
 
     async init() {        
         this.config();
-        this.middlewares();
         this.routers();
+        this.errors();
         await this.database();
     }
 
@@ -32,7 +32,12 @@ export default class Application {
         });
     }
 
-    private middlewares() {
+    private errors() {
+        this.#express.use((error: HttpError, request: Request, response: Response, next: NextFunction) => {
+            return response.json({
+                mensagem: error.message
+            });
+        });
     }
 
     private routers() {
