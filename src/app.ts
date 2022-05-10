@@ -35,7 +35,7 @@ export default class Application {
     private errors() {
         this.#express.use((error: HttpError, request: Request, response: Response, next: NextFunction) => {
             return response.json({
-                mensagem: error.message
+                message: error.message
             });
         });
     }
